@@ -186,3 +186,25 @@ text {
     width: 10em;
   }
 }
+
+.code-block {
+  position: absolute;
+  right: 0;
+  bottom: 5%;
+  background-color: white;
+  padding: 1em;
+}
+
+.pre-code {
+  max-height: 400px;
+  width: 500px;
+  overflow: auto;
+}
+
+.operation {
+  display: none;
+}
+
+.display {
+  display: block;
+}

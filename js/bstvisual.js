@@ -415,14 +415,11 @@ var view = {
       .append("g")
       .attr({ class: "nodeWrap", transform: "scale(0)" });
 
-    nodeWrap
-      .append("circle")
-      .attr("r", node.size)
-      .style({
-        fill: node.fillStyle,
-        stroke: node.fillStyleText,
-        "stroke-width": 2,
-      });
+    nodeWrap.append("circle").attr("r", node.size).style({
+      fill: node.fillStyle,
+      stroke: node.fillStyleText,
+      "stroke-width": 2,
+    });
 
     nodeWrap
       .append("text")
@@ -686,6 +683,26 @@ $(".form-inline").on("submit", function (event) {
   event.preventDefault;
   try {
     formFunctions[this.id]();
+
+    var addBlockCode = document.getElementById("addBlockCode");
+    var searchBlockCode = document.getElementById("searchBlockCode");
+    var deleteBlockCode = document.getElementById("deleteBlockCode");
+
+    if (this.id === "addNodeForm" || this.id === "addRandomForm") {
+      addBlockCode?.classList.add("display");
+      searchBlockCode?.classList.remove("display");
+      deleteBlockCode?.classList.remove("display");
+    }
+    if (this.id === "searchForNodeForm") {
+      addBlockCode?.classList.remove("display");
+      searchBlockCode?.classList.add("display");
+      deleteBlockCode?.classList.remove("display");
+    }
+    if (this.id === "deleteNodeForm") {
+      addBlockCode?.classList.remove("display");
+      searchBlockCode?.classList.remove("display");
+      deleteBlockCode?.classList.add("display");
+    }
   } catch (err) {
     console.log(err);
   }
